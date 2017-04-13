@@ -18,6 +18,7 @@ import org.eclipse.jface.text.ITextViewer;
 import org.eclipse.jface.text.information.IInformationProviderExtension2;
 import org.eclipse.ui.IEditorPart;
 
+import com.aptana.core.logging.IdeLog;
 import com.aptana.editor.common.hover.AbstractDocumentationHover;
 import com.aptana.editor.common.hover.CustomBrowserInformationControl;
 import com.aptana.editor.php.PHPEditorPlugin;
@@ -136,7 +137,7 @@ public class PHPBestMatchHover extends AbstractPHPTextHover
 			}
 			catch (Exception e)
 			{
-				PHPEditorPlugin.logError(e);
+				IdeLog.logError(PHPEditorPlugin.getDefault(), e);
 			}
 		}
 	}

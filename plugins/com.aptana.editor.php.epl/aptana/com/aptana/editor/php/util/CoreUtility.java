@@ -28,7 +28,7 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.swt.custom.BusyIndicator;
 import org.osgi.framework.Bundle;
@@ -167,16 +167,16 @@ public class CoreUtility
 				{
 					monitor.beginTask(MessageFormat.format(Messages.CoreUtility_buildProject, new Object[] { fProject
 							.getName() }), 2);
-					fProject.build(IncrementalProjectBuilder.FULL_BUILD, new SubProgressMonitor(monitor, 1));
+					fProject.build(IncrementalProjectBuilder.FULL_BUILD, SubMonitor.convert(monitor, 1));
 					PHPEplPlugin.getWorkspace().build(IncrementalProjectBuilder.INCREMENTAL_BUILD,
-							new SubProgressMonitor(monitor, 1));
+							SubMonitor.convert(monitor, 1));
 					// PHPGlobalIndexer.getInstance().clean(fProject);
 				}
 				else
 				{
 					monitor.beginTask(Messages.CoreUtility_buildAll, 2);
 					PHPEplPlugin.getWorkspace().build(IncrementalProjectBuilder.FULL_BUILD,
-							new SubProgressMonitor(monitor, 2));
+							SubMonitor.convert(monitor, 2));
 					// PHPGlobalIndexer.getInstance().cleanAllProjects();
 				}
 			}

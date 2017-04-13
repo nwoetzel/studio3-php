@@ -25,7 +25,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
@@ -159,7 +159,7 @@ public class PHPExecutableLaunchDelegate extends LaunchConfigurationDelegate {
 			return;
 		}
 
-		subMonitor = new SubProgressMonitor(monitor, 10); // 10 of 100
+		subMonitor = SubMonitor.convert(monitor, 10); // 10 of 100
 
 		// Locate the php.ini by using the attribute. If the attribute was null, try to locate an php.ini that exists next to the executable.
 		File phpIni = (phpIniPath != null && new File(phpIniPath).exists()) ? new File(phpIniPath) : PHPINIUtil.findPHPIni(phpExeString);
@@ -274,7 +274,7 @@ public class PHPExecutableLaunchDelegate extends LaunchConfigurationDelegate {
 			processAttributes.put(IProcess.ATTR_PROCESS_TYPE, programName);
 
 			if (p != null) {
-				subMonitor = new SubProgressMonitor(monitor, 80); // 10+80 of 100;
+				subMonitor = SubMonitor.convert(monitor, 80); // 10+80 of 100;
 				subMonitor.beginTask(MessageFormat.format("start launch", new Object[] { configuration.getName() }), IProgressMonitor.UNKNOWN); //$NON-NLS-1$
 				process = DebugPlugin.newProcess(launch, p, phpExe.toOSString(), processAttributes);
 				if (process == null) {
@@ -307,7 +307,7 @@ public class PHPExecutableLaunchDelegate extends LaunchConfigurationDelegate {
 				}
 
 				// refresh resources
-				subMonitor = new SubProgressMonitor(monitor, 10); // 10+80+10 of 100;
+				subMonitor = SubMonitor.convert(monitor, 10); // 10+80+10 of 100;
 				RefreshTab.refreshResources(configuration, subMonitor);
 			}
 		}

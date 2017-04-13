@@ -32,7 +32,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.osgi.service.prefs.BackingStoreException;
 import org.w3c.dom.Element;
@@ -45,11 +45,11 @@ import org2.eclipse.php.internal.core.project.IIncludePathEntry;
 import org2.eclipse.php.internal.core.project.options.includepath.IncludePathEntry;
 import org2.eclipse.php.internal.core.project.options.includepath.IncludePathVariableManager;
 
+import com.aptana.core.logging.IdeLog;
 import com.aptana.editor.php.core.IPHPCoreEPLConstants;
 import com.aptana.editor.php.core.PHPNature;
 import com.aptana.editor.php.epl.PHPEplPlugin;
 
-@SuppressWarnings("restriction")
 public class PHPProjectOptions
 {
 
@@ -83,7 +83,7 @@ public class PHPProjectOptions
 		}
 		catch (final CoreException e)
 		{
-			PHPEplPlugin.logError("Unexpected exception", e); //$NON-NLS-1$
+			IdeLog.logError(PHPEplPlugin.getDefault(), "Unexpected exception", e); //$NON-NLS-1$
 		}
 		return (nature != null) ? nature.getOptions() : null;
 	}
@@ -113,7 +113,7 @@ public class PHPProjectOptions
 	}
 
 	public static void setIncludePathVariables(final String[] names, final IPath[] paths,
-			final SubProgressMonitor monitor)
+			final SubMonitor monitor)
 	{
 		IncludePathVariableManager.instance().setIncludePathVariables(names, paths, monitor);
 	}
@@ -223,7 +223,7 @@ public class PHPProjectOptions
 		}
 		catch (BackingStoreException e)
 		{
-			PHPEplPlugin.logError("Unexpected exception", e); //$NON-NLS-1$
+			IdeLog.logError(PHPEplPlugin.getDefault(), "Unexpected exception", e); //$NON-NLS-1$
 		}
 	}
 
@@ -268,7 +268,7 @@ public class PHPProjectOptions
 		}
 		catch (final Exception e)
 		{
-			PHPEplPlugin.logError("Unexpected exception", e); //$NON-NLS-1$
+			IdeLog.logError(PHPEplPlugin.getDefault(), "Unexpected exception", e); //$NON-NLS-1$
 		}
 	}
 
@@ -297,12 +297,12 @@ public class PHPProjectOptions
 		}
 		catch (final Exception e)
 		{
-			PHPEplPlugin.logError("Unexpected exception", e); //$NON-NLS-1$
+			IdeLog.logError(PHPEplPlugin.getDefault(), "Unexpected exception", e); //$NON-NLS-1$
 		}
 	}
 
 	public void setRawIncludePath(final IIncludePathEntry[] newIncludePathEntries,
-			final SubProgressMonitor subProgressMonitor)
+			final SubMonitor subProgressMonitor)
 	{
 		final IIncludePathEntry[] oldValue = includePathEntries;
 		includePathEntries = newIncludePathEntries;
@@ -334,7 +334,7 @@ public class PHPProjectOptions
 		}
 		catch (IOException e)
 		{
-			PHPEplPlugin.logError("Unexpected exception", e); //$NON-NLS-1$
+			IdeLog.logError(PHPEplPlugin.getDefault(), "Unexpected exception", e); //$NON-NLS-1$
 		}
 		finally
 		{
@@ -387,7 +387,7 @@ public class PHPProjectOptions
 		}
 		catch (IOException e)
 		{
-			PHPEplPlugin.logError("Unexpected exception", e); //$NON-NLS-1$
+			IdeLog.logError(PHPEplPlugin.getDefault(), "Unexpected exception", e); //$NON-NLS-1$
 		}
 		finally
 		{
@@ -470,11 +470,11 @@ public class PHPProjectOptions
 		}
 		catch (IOException e)
 		{
-			PHPEplPlugin.logError("Unexpected exception", e); //$NON-NLS-1$
+			IdeLog.logError(PHPEplPlugin.getDefault(), "Unexpected exception", e); //$NON-NLS-1$
 		}
 		catch (CoreException e)
 		{
-			PHPEplPlugin.logError("Unexpected exception", e); //$NON-NLS-1$
+			IdeLog.logError(PHPEplPlugin.getDefault(), "Unexpected exception", e); //$NON-NLS-1$
 		}
 	}
 

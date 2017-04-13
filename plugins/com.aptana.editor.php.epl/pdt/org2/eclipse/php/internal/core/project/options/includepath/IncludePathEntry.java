@@ -28,7 +28,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.preferences.IWorkingCopyManager;
 import org.w3c.dom.Element;
@@ -38,6 +38,7 @@ import org2.eclipse.php.internal.core.project.options.PHPProjectOptions;
 import org2.eclipse.php.internal.core.project.options.XMLWriter;
 import org2.eclipse.php.internal.core.util.preferences.XMLPreferencesReader;
 
+import com.aptana.core.logging.IdeLog;
 import com.aptana.core.util.StringUtil;
 import com.aptana.editor.php.epl.PHPEplPlugin;
 import com.aptana.editor.php.util.Key;
@@ -92,10 +93,10 @@ public class IncludePathEntry implements IIncludePathEntry
 		}
 		List<IIncludePathEntry> entries = new ArrayList<IIncludePathEntry>();
 
-		Map[] maps = XMLPreferencesReader.read(preferenceKey, projectScope, workingCopyManager);
+		Map<String, Object>[] maps = XMLPreferencesReader.read(preferenceKey, projectScope, workingCopyManager);
 		if (maps != null)
 		{
-			for (Map map : maps)
+			for (Map<String, Object> map : maps)
 			{
 				IncludePathEntryDescriptor descriptor = new IncludePathEntryDescriptor();
 				descriptor.restoreFromMap(map);
@@ -310,7 +311,7 @@ public class IncludePathEntry implements IIncludePathEntry
 	public void elementEncode(XMLWriter writer, IPath projectPath, boolean newLine)
 	{
 		// Keeping this as a HashMap (not a Map) for the XMLWriter
-		HashMap parameters = new HashMap();
+		HashMap<String, Object> parameters = new HashMap<String, Object>();
 
 		parameters.put(TAG_ENTRY_KIND, IncludePathEntry.entryKindToString(this.entryKind));
 		parameters.put(TAG_CONTENT_KIND, IncludePathEntry.contentKindToString(this.contentKind));
@@ -354,7 +355,7 @@ public class IncludePathEntry implements IIncludePathEntry
 	}
 
 	public static void updateProjectReferences(IIncludePathEntry[] newEntries, IIncludePathEntry[] oldEntries,
-			final IProject project, SubProgressMonitor monitor)
+			final IProject project, SubMonitor monitor)
 	{
 		try
 		{
@@ -425,7 +426,7 @@ public class IncludePathEntry implements IIncludePathEntry
 		}
 		catch (CoreException e)
 		{
-			PHPEplPlugin.logError(e);
+			IdeLog.logError(PHPEplPlugin.getDefault(), e);
 		}
 	}
 

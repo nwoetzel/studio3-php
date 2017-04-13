@@ -21,7 +21,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.ListenerList;
 import org.eclipse.core.runtime.ProgressMonitorWrapper;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
@@ -2042,13 +2042,13 @@ public abstract class FilteredItemsSelectionDialog extends
 				lastCompletedFilter = null;
 				lastCompletedResult = null;
 
-				SubProgressMonitor subMonitor = null;
+				SubMonitor subMonitor = null;
 				if (monitor != null) {
 					monitor
 							.beginTask(
 									"Searching",
 									100);
-					subMonitor = new SubProgressMonitor(monitor, 95);
+					subMonitor = SubMonitor.convert(monitor, 95);
 
 				}
 
@@ -2802,7 +2802,7 @@ public abstract class FilteredItemsSelectionDialog extends
 			// the TableViewer's root (the input) is treated as parent
 
 			lastFilteredItems = Arrays.asList(getFilteredItems(list.getInput(),
-					monitor != null ? new SubProgressMonitor(monitor, 100)
+					monitor != null ? SubMonitor.convert(monitor, 100)
 							: null));
 
 			if (reset || (monitor != null && monitor.isCanceled())) {
@@ -2823,7 +2823,7 @@ public abstract class FilteredItemsSelectionDialog extends
 				IProgressMonitor subMonitor = null;
 				int reportEvery = lastFilteredItems.size() / 20;
 				if (monitor != null) {
-					subMonitor = new SubProgressMonitor(monitor, 100);
+					subMonitor = SubMonitor.convert(monitor, 100);
 					subMonitor
 							.beginTask(
 									"Check Dublicates", //$NON-NLS-1$

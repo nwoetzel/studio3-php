@@ -28,6 +28,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.aptana.core.logging.IdeLog;
 import com.aptana.core.util.StringUtil;
 import com.aptana.core.util.replace.SimpleTextPatternReplacer;
 import com.aptana.editor.php.epl.PHPEplPlugin;
@@ -92,7 +93,7 @@ public class XMLPreferencesReader
 		}
 		catch (Exception e)
 		{
-			PHPEplPlugin.logError("Unexpected exception", e);
+			IdeLog.logError(PHPEplPlugin.getDefault(), "Unexpected exception", e);
 		}
 		return null;
 	}

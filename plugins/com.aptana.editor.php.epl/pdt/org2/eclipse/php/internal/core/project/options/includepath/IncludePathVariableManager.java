@@ -22,7 +22,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Plugin;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jface.preference.IPreferenceStore;
 
 import com.aptana.core.util.CollectionsUtil;
@@ -76,7 +76,7 @@ public class IncludePathVariableManager
 		return varPath;
 	}
 
-	public void setIncludePathVariables(String[] names, IPath[] paths, SubProgressMonitor monitor)
+	public void setIncludePathVariables(String[] names, IPath[] paths, SubMonitor monitor)
 	{
 		variables.clear();
 		StringBuffer namesString = new StringBuffer();

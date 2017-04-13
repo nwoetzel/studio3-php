@@ -28,7 +28,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -217,7 +217,7 @@ public class XDebugExeLaunchConfigurationDelegate extends LaunchConfigurationDel
 			envVarString = PHPLaunchUtilities.getEnvironment(configuration, new String[] {getLibraryPath(phpExe)});
 		}
 
-		IProgressMonitor subMonitor = new SubProgressMonitor(monitor, 30);
+		IProgressMonitor subMonitor = SubMonitor.convert(monitor, 30);
 		subMonitor.beginTask(PHPDebugCoreMessages.XDebug_ExeLaunchConfigurationDelegate_3, 10);
 
 		//determine the working directory. default is the location of the script

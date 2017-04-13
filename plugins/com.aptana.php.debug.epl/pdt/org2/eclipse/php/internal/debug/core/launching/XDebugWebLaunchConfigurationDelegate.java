@@ -25,7 +25,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -275,7 +275,7 @@ public class XDebugWebLaunchConfigurationDelegate extends LaunchConfigurationDel
 		final String startURL = startStopURLs[0];
 
 		// load the URL into the appropriate web browser
-		IProgressMonitor subMonitor = new SubProgressMonitor(monitor, 30);
+		IProgressMonitor subMonitor = SubMonitor.convert(monitor, 30);
 		subMonitor.beginTask(PHPDebugCoreMessages.XDebug_WebLaunchConfigurationDelegate_3, 10);
 
 		final SSHTunnel sshTunnel = tunnel;
@@ -291,7 +291,7 @@ public class XDebugWebLaunchConfigurationDelegate extends LaunchConfigurationDel
 			{
 				try
 				{
-					final List postData = configuration.getAttribute(IPHPDebugCorePreferenceKeys.ATTR_HTTP_POST,
+					final List<String> postData = configuration.getAttribute(IPHPDebugCorePreferenceKeys.ATTR_HTTP_POST,
 							Collections.EMPTY_LIST);
 					// Has to be done from the UI thread since the Browser can be an internal one
 					Display.getDefault().asyncExec(new Runnable()

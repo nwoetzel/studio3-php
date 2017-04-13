@@ -24,6 +24,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.osgi.framework.Bundle;
 
+import com.aptana.core.logging.IdeLog;
 import com.aptana.editor.php.epl.PHPEplPlugin;
 
 @SuppressWarnings("unused")
@@ -202,14 +203,14 @@ public class PHPPluginImages
 			{
 				if (PHPEplPlugin.DEBUG)
 				{
-					PHPEplPlugin.logError("Image registry already defined", null); //$NON-NLS-1$
+					IdeLog.logError(PHPEplPlugin.getDefault(), "Image registry already defined"); //$NON-NLS-1$
 				}
 			}
 			return result;
 		}
 		catch (Throwable ex)
 		{
-			PHPEplPlugin.logError(ex);
+			IdeLog.logError(PHPEplPlugin.getDefault(), ex);
 		}
 		return null;
 	}
