@@ -34,7 +34,6 @@ import org.eclipse.ui.texteditor.ChainedPreferenceStore;
 import org2.eclipse.php.internal.core.IPHPEplCoreConstants;
 import org2.eclipse.php.internal.ui.PHPUIMessages;
 
-import com.aptana.core.util.EclipseUtil;
 import com.aptana.editor.common.CommonEditorPlugin;
 import com.aptana.editor.common.preferences.CommonEditorPreferencePage;
 import com.aptana.editor.common.preferences.IPreferenceConstants;

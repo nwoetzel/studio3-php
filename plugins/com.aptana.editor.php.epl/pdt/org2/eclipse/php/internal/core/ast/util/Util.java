@@ -31,8 +31,6 @@ import org.eclipse.text.edits.TextEdit;
 import org2.eclipse.dltk.compiler.CharOperation;
 import org2.eclipse.dltk.compiler.util.ScannerHelper;
 
-import com.aptana.core.util.EclipseUtil;
-
 /**
  * Provides convenient utility methods to other types in this package.<br>
  * Note: [Shalom] Some of this class functionalities were stripped in the migration process.

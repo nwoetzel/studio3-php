@@ -53,7 +53,6 @@ import com.aptana.parsing.lexer.Lexeme;
 import com.aptana.php.debug.epl.PHPDebugEPLPlugin;
 import com.aptana.ui.util.StatusLineMessageTimerManager;
 
-@SuppressWarnings("unchecked")
 public class PHPBreakpointProvider implements IExecutableExtension
 {
 

@@ -796,7 +796,6 @@ public class DebugConnectionThread implements Runnable {
 			queueIn(CONNECTION_CLOSED_MSG);
 		}
 
-		@SuppressWarnings("unchecked")
 		private synchronized void resetCommunication() {
 			// Now we can stop the input manager.
 			if (inputManager != null)

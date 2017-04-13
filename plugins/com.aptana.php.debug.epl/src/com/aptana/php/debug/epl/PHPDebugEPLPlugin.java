@@ -39,7 +39,6 @@ import org2.eclipse.php.internal.debug.core.xdebug.dbgp.DBGpProxyHandler;
 import org2.eclipse.php.internal.debug.ui.util.ImageDescriptorRegistry;
 
 import com.aptana.core.logging.IdeLog;
-import com.aptana.core.util.EclipseUtil;
 import com.aptana.core.util.StringUtil;
 import com.aptana.php.debug.IDebugScopes;
 import com.aptana.php.debug.core.IPHPDebugCorePreferenceKeys;

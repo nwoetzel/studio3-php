@@ -30,7 +30,6 @@ import org2.eclipse.php.internal.debug.core.preferences.PHPexes;
 
 import com.aptana.php.debug.core.IPHPDebugCorePreferenceKeys;
 import com.aptana.php.debug.core.server.PHPServersManager;
-import com.aptana.php.debug.core.server.PHPWebServer;
 import com.aptana.php.debug.epl.PHPDebugEPLPlugin;
 import com.aptana.webserver.core.ExternalWebServer;
 import com.aptana.webserver.core.IServer;
