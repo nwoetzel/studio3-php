@@ -38,7 +38,6 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.jface.viewers.ViewerFilter;
-import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -241,7 +240,7 @@ public class BuildPathEditingComposite extends Composite
 				}
 			}
 		});
-		directoryViewer.setSorter(new ViewerSorter());
+		directoryViewer.setComparator(new ViewerComparator());
 		item.setControl(projectPart);
 	}
 
@@ -337,7 +336,7 @@ public class BuildPathEditingComposite extends Composite
 			}
 		});
 		remove.setLayoutData(GridDataFactory.fillDefaults().hint(100, -1).create());
-		workspaceViewer.setSorter(new ViewerSorter());
+		workspaceViewer.setComparator(new ViewerComparator());
 	}
 
 	/**

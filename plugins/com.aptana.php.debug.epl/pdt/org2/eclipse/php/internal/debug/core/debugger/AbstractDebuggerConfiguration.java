@@ -53,7 +53,7 @@ public abstract class AbstractDebuggerConfiguration implements IDebuggerConfigur
 	 */
 	public void setAttribute(String id, String value)
 	{
-		String defaultValue = new DefaultScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID).get(id, StringUtil.EMPTY);
+		String defaultValue = DefaultScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID).get(id, StringUtil.EMPTY);
 		if (StringUtil.EMPTY.equals(defaultValue))
 		{
 			attributes.put(id, value);

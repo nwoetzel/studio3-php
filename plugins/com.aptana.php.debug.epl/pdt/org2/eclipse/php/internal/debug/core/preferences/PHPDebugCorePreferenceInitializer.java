@@ -33,7 +33,7 @@ public class PHPDebugCorePreferenceInitializer extends AbstractPreferenceInitial
 
 	public void initializeDefaultPreferences() {
 		//		IEclipsePreferences node = new DefaultScope().getNode(Activator.getDefault().getBundle().getSymbolicName());
-		IEclipsePreferences preferences = new DefaultScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences preferences = DefaultScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		// formatting preferences
 		preferences.putBoolean(PHPDebugCorePreferenceNames.STOP_AT_FIRST_LINE, true);
 		preferences.putBoolean(PHPDebugCorePreferenceNames.RUN_WITH_DEBUG_INFO, true);

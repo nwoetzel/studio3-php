@@ -42,7 +42,7 @@ import com.aptana.webserver.core.IServer;
  */
 public class PHPWebPageURLLaunchDialog extends MessageDialog {
 
-	private static Set previousURLs = new TreeSet();
+	private static Set<String> previousURLs = new TreeSet<String>();
 	private ILaunchConfigurationWorkingCopy launchConfiguration;
 	private Combo combo;
 	private final IServer server;

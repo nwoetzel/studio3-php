@@ -913,7 +913,6 @@ public class PHPLaunchUtilities
 	 * @throws CoreException
 	 *             rethrown exception
 	 */
-	@SuppressWarnings("unchecked")
 	public static String[] getEnvironment(ILaunchConfiguration configuration, String[] additionalEnv)
 			throws CoreException
 	{

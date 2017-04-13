@@ -245,7 +245,7 @@ public class XDebugConfigurationDialog extends AbstractDebuggerConfigurationDial
 	protected void okPressed()
 	{
 		// TODO: move to preference manager
-		IEclipsePreferences prefs = new InstanceScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 
 		// general
 		prefs.put(XDebugPreferenceMgr.XDEBUG_PREF_PORT, portTextBox.getText());

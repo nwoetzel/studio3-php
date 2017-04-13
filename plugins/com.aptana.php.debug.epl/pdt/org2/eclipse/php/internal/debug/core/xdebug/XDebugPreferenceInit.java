@@ -19,7 +19,7 @@ import com.aptana.php.debug.epl.PHPDebugEPLPlugin;
 public class XDebugPreferenceInit {
 
 	public static void setDefaults() {
-		IEclipsePreferences prefs = new DefaultScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = DefaultScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		prefs.putInt(XDebugUIAttributeConstants.XDEBUG_PREF_PORT, getPortDefault());
 		prefs.putBoolean(XDebugUIAttributeConstants.XDEBUG_PREF_SHOWSUPERGLOBALS, showSuperGlobalsDefault());
 		prefs.putInt(XDebugUIAttributeConstants.XDEBUG_PREF_ARRAYDEPTH, getDepthDefault());

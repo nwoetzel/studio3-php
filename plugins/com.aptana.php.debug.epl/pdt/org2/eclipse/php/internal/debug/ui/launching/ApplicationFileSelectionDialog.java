@@ -13,7 +13,7 @@ package org2.eclipse.php.internal.debug.ui.launching;
 import org.eclipse.core.runtime.Preferences;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -39,7 +39,7 @@ public class ApplicationFileSelectionDialog extends ElementTreeSelectionDialog {
 	private Button fExternalFilesBt;
 	private boolean fAllowExternalFiles;
 	private Preferences fStore;
-	private ViewerSorter comparator;
+	private ViewerComparator comparator;
 
 	/**
 	 * FilteredFileSelectionDialog constructor comment.
@@ -162,7 +162,7 @@ public class ApplicationFileSelectionDialog extends ElementTreeSelectionDialog {
 	/**
 	 * @param resourceSorter
 	 */
-	public void setComparator(ViewerSorter resourceSorter) {
+	public void setComparator(ViewerComparator resourceSorter) {
 		this.comparator = resourceSorter;
 		if (getTreeViewer()!=null) {
 			getTreeViewer().setComparator(resourceSorter);

@@ -76,7 +76,7 @@ public class WorkbenchOptionsBlock extends AbstractPHPPreferencePageBlock {
 	}
 
 	public void performDefaults() {
-		IEclipsePreferences prefs = new DefaultScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = DefaultScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		fOpenInBrowser.setSelection(prefs.getBoolean(PHPDebugCorePreferenceNames.OPEN_IN_BROWSER, true));
 		fOpenDebugViews.setSelection(prefs.getBoolean(PHPDebugCorePreferenceNames.OPEN_DEBUG_VIEWS, true));
 
@@ -101,7 +101,7 @@ public class WorkbenchOptionsBlock extends AbstractPHPPreferencePageBlock {
 	}
 
 	private void savePreferences() {
-		IEclipsePreferences prefs = new InstanceScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		prefs.putBoolean(PHPDebugCorePreferenceNames.OPEN_IN_BROWSER, fOpenInBrowser.getSelection());
 		prefs.putBoolean(PHPDebugCorePreferenceNames.OPEN_DEBUG_VIEWS, fOpenDebugViews.getSelection());
 		try

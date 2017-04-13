@@ -15,10 +15,9 @@ import java.util.Vector;
 
 import org.eclipse.debug.core.IStreamListener;
 import org.eclipse.debug.core.model.IFlushableStreamMonitor;
-@SuppressWarnings("unchecked")
 public class DebugConsoleMonitor implements IFlushableStreamMonitor {
     private StringBuffer fContents = new StringBuffer();
-	private Vector fListeners = new Vector(1);
+	private Vector<IStreamListener> fListeners = new Vector<IStreamListener>(1);
     private boolean fBuffered = true;
 
     /**
@@ -51,7 +50,7 @@ public class DebugConsoleMonitor implements IFlushableStreamMonitor {
         if (isBuffered()) {
             fContents.append(message);
         }
-        Enumeration enumObject = fListeners.elements();
+        Enumeration<IStreamListener> enumObject = fListeners.elements();
         while (enumObject.hasMoreElements()) {
             IStreamListener listener = ((IStreamListener) enumObject.nextElement());
             listener.streamAppended(message, this);

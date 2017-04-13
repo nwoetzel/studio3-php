@@ -68,7 +68,7 @@ public class PHPDebugPreferencesWorkspaceAddon extends AbstractPHPPreferencePage
 
 	public void performDefaults()
 	{
-		IEclipsePreferences prefs = new DefaultScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = DefaultScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		// fRunWithDebugInfo.setSelection(prefs.getDefaultBoolean(PHPDebugCorePreferenceNames.RUN_WITH_DEBUG_INFO));
 		this.fOpenInBrowser.setSelection(prefs.getBoolean(PHPDebugCorePreferenceNames.OPEN_IN_BROWSER, true));
 		this.fOpenDebugViews.setSelection(prefs.getBoolean(PHPDebugCorePreferenceNames.OPEN_DEBUG_VIEWS, true));
@@ -85,7 +85,7 @@ public class PHPDebugPreferencesWorkspaceAddon extends AbstractPHPPreferencePage
 
 	private void savePreferences()
 	{
-		IEclipsePreferences prefs = new InstanceScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		prefs.putBoolean(PHPDebugCorePreferenceNames.OPEN_IN_BROWSER, this.fOpenInBrowser.getSelection());
 		prefs.putBoolean(PHPDebugCorePreferenceNames.OPEN_DEBUG_VIEWS, this.fOpenDebugViews.getSelection());
 		try

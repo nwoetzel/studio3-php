@@ -241,7 +241,6 @@ public class PathMapper implements IXMLPreferencesStorable {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	public synchronized void restoreFromMap(Map map) {
 		if (map == null) {
 			return;

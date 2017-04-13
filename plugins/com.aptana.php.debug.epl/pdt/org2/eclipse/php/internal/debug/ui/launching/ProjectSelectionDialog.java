@@ -40,7 +40,7 @@ public class ProjectSelectionDialog extends ElementListSelectionDialog {
 		this.requiredNatures = requiredNatures;
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		if (requiredNatures != null && requiredNatures.length > 0) {
-			Vector filteredProjects = new Vector();
+			Vector<IProject> filteredProjects = new Vector<IProject>();
 			int numProjects = projects == null ? 0 : projects.length;
 			for (int i = 0; i < numProjects; i++) {
 				try {

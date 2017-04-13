@@ -79,7 +79,7 @@ public class ZendDebuggerConfiguration extends AbstractDebuggerConfiguration {
 	 * @see org2.eclipse.php.internal.debug.core.debugger.AbstractDebuggerConfiguration#applyDefaults()
 	 */
 	public void applyDefaults() {
-		IEclipsePreferences defaults = new DefaultScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences defaults = DefaultScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 
 		setPort(defaults.getInt(PHPDebugCorePreferenceNames.ZEND_DEBUG_PORT, 10000));
 		preferences.putBoolean(PHPDebugCorePreferenceNames.RUN_WITH_DEBUG_INFO, defaults.getBoolean(PHPDebugCorePreferenceNames.RUN_WITH_DEBUG_INFO, true));

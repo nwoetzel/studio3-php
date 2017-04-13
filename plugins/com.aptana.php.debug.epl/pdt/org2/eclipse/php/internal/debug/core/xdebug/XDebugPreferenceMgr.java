@@ -63,7 +63,7 @@ public class XDebugPreferenceMgr {
 
 
 	public static void setDefaults() {
-		IEclipsePreferences prefs = new DefaultScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = DefaultScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		prefs.putInt(XDebugPreferenceMgr.XDEBUG_PREF_PORT, getPortDefault());
 		prefs.putBoolean(XDebugPreferenceMgr.XDEBUG_PREF_SHOWSUPERGLOBALS, showSuperGlobalsDefault());
 		prefs.putInt(XDebugPreferenceMgr.XDEBUG_PREF_ARRAYDEPTH, getDepthDefault());
@@ -79,7 +79,7 @@ public class XDebugPreferenceMgr {
 
 	public static void applyDefaults(IEclipsePreferences preferences) {
 		IPreferencesService service = Platform.getPreferencesService();
-		IScopeContext[] defaultContext = new IScopeContext[] { new DefaultScope() };
+		IScopeContext[] defaultContext = new IScopeContext[] { DefaultScope.INSTANCE };
 
 		preferences.putInt(XDebugPreferenceMgr.XDEBUG_PREF_PORT, service.getInt(PHPDebugEPLPlugin.PLUGIN_ID,
 				XDebugPreferenceMgr.XDEBUG_PREF_PORT, getPortDefault(), defaultContext));
@@ -150,7 +150,7 @@ public class XDebugPreferenceMgr {
 	}
 
 	public static void setPort(int port) {
-		IEclipsePreferences prefs = new InstanceScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		prefs.putInt(XDebugPreferenceMgr.XDEBUG_PREF_PORT, port);
 		try
 		{
@@ -171,7 +171,7 @@ public class XDebugPreferenceMgr {
 	}
 
 	public static void setUseProxy(boolean newState) {
-		IEclipsePreferences prefs = new InstanceScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		prefs.putBoolean(XDebugPreferenceMgr.XDEBUG_PREF_USEPROXY, newState);
 		try
 		{

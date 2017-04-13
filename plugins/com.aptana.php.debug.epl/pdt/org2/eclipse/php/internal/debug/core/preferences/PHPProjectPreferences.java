@@ -89,11 +89,11 @@ public class PHPProjectPreferences
 		IScopeContext[] contexts;
 		if (project != null)
 		{
-			contexts = new IScopeContext[] { new ProjectScope(project), new InstanceScope(), new DefaultScope() };
+			contexts = new IScopeContext[] { new ProjectScope(project), InstanceScope.INSTANCE, new DefaultScope() };
 		}
 		else
 		{
-			contexts = new IScopeContext[] { new InstanceScope(), new DefaultScope() };
+			contexts = new IScopeContext[] { InstanceScope.INSTANCE, DefaultScope.INSTANCE };
 		}
 		return contexts;
 	}

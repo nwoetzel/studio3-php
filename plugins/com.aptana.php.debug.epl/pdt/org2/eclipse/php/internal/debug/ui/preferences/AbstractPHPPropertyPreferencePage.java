@@ -42,7 +42,7 @@ import org.eclipse.ui.dialogs.ListDialog;
 import org.eclipse.ui.dialogs.PreferencesUtil;
 import org.eclipse.ui.dialogs.PropertyPage;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
-import org.eclipse.ui.views.navigator.ResourceSorter;
+import org.eclipse.ui.views.navigator.ResourceComparator;
 import org2.eclipse.php.internal.core.util.ScrolledCompositeImpl;
 import org2.eclipse.php.internal.ui.PHPUIMessages;
 
@@ -192,9 +192,9 @@ public abstract class AbstractPHPPropertyPreferencePage extends PropertyPage imp
 	protected IScopeContext[] createPreferenceScopes() {
 		IProject project = getProject();
 		if (project != null) {
-			return new IScopeContext[] { new ProjectScope(project), new InstanceScope(), new DefaultScope() };
+			return new IScopeContext[] { new ProjectScope(project), InstanceScope.INSTANCE, DefaultScope.INSTANCE };
 		}
-		return new IScopeContext[] { new InstanceScope(), new DefaultScope() };
+		return new IScopeContext[] { InstanceScope.INSTANCE, DefaultScope.INSTANCE };
 	}
 
 	protected abstract String getPreferenceNodeQualifier();
@@ -221,7 +221,7 @@ public abstract class AbstractPHPPropertyPreferencePage extends PropertyPage imp
 
 			protected Control createDialogArea(Composite container) {
 				Control area = super.createDialogArea(container);
-				getTableViewer().setSorter(new ResourceSorter(ResourceSorter.NAME));
+				getTableViewer().setComparator(new ResourceComparator(ResourceComparator.NAME));
 				return area;
 			}
 		};

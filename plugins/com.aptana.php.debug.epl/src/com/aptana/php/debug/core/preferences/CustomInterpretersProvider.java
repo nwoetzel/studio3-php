@@ -78,7 +78,7 @@ public class CustomInterpretersProvider implements IInterpreterProvider
 	{
 		interpreters = new ArrayList<IInterpreter>();
 
-		IEclipsePreferences prefs = new InstanceScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 
 		// Load the item names array
 		String namesString = prefs.get(PHPDebugCorePreferenceNames.INSTALLED_PHP_NAMES, null);

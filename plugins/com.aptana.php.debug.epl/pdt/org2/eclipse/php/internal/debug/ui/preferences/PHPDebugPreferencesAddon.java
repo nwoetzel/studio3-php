@@ -192,7 +192,7 @@ public class PHPDebugPreferencesAddon extends AbstractPHPPreferencePageBlock
 
 	public void performDefaults()
 	{
-		IEclipsePreferences prefs = new DefaultScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = DefaultScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		this.fStopAtFirstLine.setSelection(prefs.getBoolean(PHPDebugCorePreferenceNames.STOP_AT_FIRST_LINE, true));
 		this.fClientIP.setText(prefs.get(PHPDebugCorePreferenceNames.CLIENT_IP, "127.0.0.1")); //$NON-NLS-1$
 		this.loadDebuggers(this.fDefaultDebugger);
@@ -546,7 +546,7 @@ public class PHPDebugPreferencesAddon extends AbstractPHPPreferencePageBlock
 			}
 		}
 		// TODO - Might do the same for the default server
-		IEclipsePreferences prefs = new InstanceScope().getNode(PHPDebugEPLPlugin.PLUGIN_ID);
+		IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PHPDebugEPLPlugin.PLUGIN_ID);
 		IScopeContext[] preferenceScopes = this.createPreferenceScopes(this.propertyPage);
 		IEclipsePreferences debugUINode = preferenceScopes[0].getNode(this.getPreferenceNodeQualifier());
 		IProject project = this.getProject(this.propertyPage);

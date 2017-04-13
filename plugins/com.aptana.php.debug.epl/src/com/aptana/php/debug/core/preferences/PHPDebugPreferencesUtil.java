@@ -19,7 +19,7 @@ import com.aptana.php.debug.epl.PHPDebugEPLPlugin;
  */
 public class PHPDebugPreferencesUtil
 {
-	private static final IScopeContext[] CONTEXTS = new IScopeContext[] { new InstanceScope(), new DefaultScope() };
+	private static final IScopeContext[] CONTEXTS = new IScopeContext[] { InstanceScope.INSTANCE, DefaultScope.INSTANCE };
 
 	/**
 	 * @param key

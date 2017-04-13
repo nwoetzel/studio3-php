@@ -30,7 +30,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -158,7 +158,7 @@ public class PathEntrySelectionDialog extends TrayDialog {
 		entriesViewer.getControl().setLayoutData(layoutData);
 		entriesViewer.setContentProvider(new ContentProvider());
 		entriesViewer.setLabelProvider(new LabelProvider());
-		entriesViewer.setSorter(new Sorter());
+		entriesViewer.setComparator(new Sorter());
 		entriesViewer.setInput(this);
 		entriesViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -397,7 +397,7 @@ public class PathEntrySelectionDialog extends TrayDialog {
 	/**
 	 * Sorter for path entries by relevancy
 	 */
-	class Sorter extends ViewerSorter {
+	class Sorter extends ViewerComparator {
 
 		private BestMatchPathComparator comparator;
 

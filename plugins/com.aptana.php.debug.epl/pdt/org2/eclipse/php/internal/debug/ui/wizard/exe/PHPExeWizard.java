@@ -56,7 +56,6 @@ public class PHPExeWizard extends FragmentedWizard implements INewWizard {
 		WizardFragment fragment = new WizardFragment() {
 			WizardFragment[] children;
 
-			@SuppressWarnings("unchecked")
 			protected void createChildFragments(List list) {
 				if (children != null) {
 					loadChildren(children, list);

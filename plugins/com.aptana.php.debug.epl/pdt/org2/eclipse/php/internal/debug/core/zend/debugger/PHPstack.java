@@ -23,13 +23,13 @@ import java.util.Vector;
  */
 public class PHPstack {
 
-    private Vector layers;
+    private Vector<StackLayer> layers;
 
     /**
      * Creates new PHPstack
      */
     public PHPstack() {
-        layers = new Vector();
+        layers = new Vector<StackLayer>();
     }
 
     public void addLayer(StackLayer layer) {
@@ -56,7 +56,7 @@ public class PHPstack {
 
     public String toString() {
         String toReturn = "***\n";
-        Enumeration e = layers.elements();
+        Enumeration<StackLayer> e = layers.elements();
         while (e.hasMoreElements()) {
             toReturn += e.nextElement().toString() + "\n" + "***\n";
         }

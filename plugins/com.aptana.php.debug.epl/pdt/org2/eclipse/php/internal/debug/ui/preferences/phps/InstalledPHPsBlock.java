@@ -41,7 +41,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlAdapter;
@@ -612,7 +612,6 @@ public class InstalledPHPsBlock
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
 	private void removePHPexes()
 	{
 		final IStructuredSelection selection = (IStructuredSelection) fPHPExeList.getSelection();
@@ -977,7 +976,7 @@ public class InstalledPHPsBlock
 	 */
 	private void sortByLocation()
 	{
-		fPHPExeList.setSorter(new ViewerSorter()
+		fPHPExeList.setComparator(new ViewerComparator()
 		{
 			public int compare(final Viewer viewer, final Object e1, final Object e2)
 			{
@@ -1004,7 +1003,7 @@ public class InstalledPHPsBlock
 	 */
 	private void sortByDebugger()
 	{
-		fPHPExeList.setSorter(new ViewerSorter()
+		fPHPExeList.setComparator(new ViewerComparator()
 		{
 			public int compare(final Viewer viewer, final Object e1, final Object e2)
 			{
@@ -1032,7 +1031,7 @@ public class InstalledPHPsBlock
 	 */
 	private void sortByName()
 	{
-		fPHPExeList.setSorter(new ViewerSorter()
+		fPHPExeList.setComparator( new ViewerComparator()
 		{
 			public int compare(final Viewer viewer, final Object e1, final Object e2)
 			{
@@ -1058,7 +1057,7 @@ public class InstalledPHPsBlock
 	 */
 	private void sortByType()
 	{
-		fPHPExeList.setSorter(new ViewerSorter()
+		fPHPExeList.setComparator(new ViewerComparator()
 		{
 			public int compare(final Viewer viewer, final Object e1, final Object e2)
 			{

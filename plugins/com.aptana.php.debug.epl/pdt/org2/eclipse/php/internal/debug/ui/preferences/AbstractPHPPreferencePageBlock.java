@@ -81,9 +81,9 @@ public abstract class AbstractPHPPreferencePageBlock  {
 	protected IScopeContext[] createPreferenceScopes(PreferencePage propertyPage) {
 		IProject project = getProject(propertyPage);
         if (project != null) {
-            return new IScopeContext[] { new ProjectScope(project), new InstanceScope(), new DefaultScope() };
+            return new IScopeContext[] { new ProjectScope(project), InstanceScope.INSTANCE, DefaultScope.INSTANCE };
         }
-        return new IScopeContext[] { new InstanceScope(), new DefaultScope() };
+        return new IScopeContext[] { InstanceScope.INSTANCE, DefaultScope.INSTANCE };
 	}
 
 	protected IProject getProject(PreferencePage preferencePage) {
